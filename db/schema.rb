@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_155320) do
+ActiveRecord::Schema.define(version: 2021_08_23_163333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 2021_08_23_155320) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer "total_price"
+    t.integer "start_date"
+    t.integer "end_date"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_bookings_on_item_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -61,5 +73,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_155320) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "items"
+  add_foreign_key "bookings", "users"
   add_foreign_key "items", "users"
 end
