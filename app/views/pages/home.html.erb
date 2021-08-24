@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: url( <%= asset_path("banner.jpg") %> );">
-  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <%= simple_form_for :search, url: items_path, method: :get do |f| %>
   <div class="banner-text">
-  <h3>This will be  brief chat about Eocene </h3>
+  <h3>This will be brief chat about Eocene </h3>
   </div>
   <div class="search-form-control form-group">
     <input class="form-control string required" type="text" name="search[query]" id="search_query" />
@@ -10,4 +10,39 @@
     </button>
   </div>
 <% end %>
+
+<div class="d-flex container justify-content-between" >
+ 
+  <!-- first banner --> 
+
+   <div class="card-trip">
+    <img src="https://images.unsplash.com/photo-1580128789542-d484253e94a3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNjdWJhfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+    <div class="card-info">
+      <h2>Diving</h2>
+      <p>Try scuba diving equipment from our top rated providers</p>
+      <h5 class="card-trip-pricing">£19.99 a day</h5>
+    </div>
+  </div>
+
+  <!-- second banner -->
+
+   <div class="card-trip">
+    <img src="https://images.unsplash.com/photo-1605540436563-5bca919ae766?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2tpaW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" />
+    <div class="card-info">
+      <h2>Skiing</h2>
+      <p>A quality range of skiing equipment still available!</p>
+      <h5 class="card-trip-pricing">£15.99 a day</h5>
+    </div>
+  </div>
+
+  <!-- Third banner --> 
+
+   <div class="card-trip">
+    <img src="https://images.unsplash.com/photo-1519789110007-0e751882be76?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHN1cmZpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+    <div class="card-info">
+      <h2>Surfing</h2>
+      <p>Ride the waves outstanding and affordable rental equipment</p>
+      <h5 class="card-trip-pricing">£12.99 a day</h5>
+    </div>
+  </div>
 </div>
