@@ -1,1 +1,7 @@
-<h1>List of all equipment..<h1>
+<h1>List of all equipment<h1>
+
+<ul>
+  <% @items.each do |item| %>
+    <li><a href="<%= item_path(item) %>"><%= item.name %></a></li>
+  <% end %>
+</ul>
