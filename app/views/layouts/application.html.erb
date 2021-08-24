@@ -12,6 +12,23 @@
   </head>
 
   <body>
+
+  <div class="navbar">
+    <%= link_to root_path, class: "navbar-brand" do %>
+        <i class="fas fa-mountain"></i>
+      <% end %>
+
+
+    <div class="navbar-text">
+      <h1>Eocene</h1>
+      <p>Do more</p>
+    </div>
+
+    <%= link_to "Log in / Sign up", new_user_session_path, class: "btn btn-ghost" %>
+
+  </div>
+
+
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

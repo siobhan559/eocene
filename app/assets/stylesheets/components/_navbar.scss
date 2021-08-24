@@ -7,6 +7,32 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-lewagon .navbar-brand {
   width: 40px;
+  height: 40px;
+  padding-right: 30px;
+}
+
+.navbar-brand {
+  z-index: 2;
+}
+
+.navbar-text {
+  position: absolute;
+  padding-left: 50px;
+  display: flex;
+}
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
 }
