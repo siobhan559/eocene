@@ -14,7 +14,7 @@
                 as: :numeric,
                 required: true,
                 autofocus: true %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photo, as: :file, input_html: { multiple: true } %>
   </div>
   <%= f.button :submit, class: 'btn btn-primary btn-lg btn-block', value: "Post" %>
 <% end %>
