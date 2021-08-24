@@ -7,7 +7,7 @@
     <% @items.each do |item| %>
 
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= cl_image_tag item.photos.first.key %>
         <div class="card-product-infos">
           <a href="<%= item_path(item) %>"><h2><%= item.name %></h2></a>
           <p><%= item.description %></p>
