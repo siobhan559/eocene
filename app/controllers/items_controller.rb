@@ -2,7 +2,13 @@ class ItemsController < ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
-    @items = Item.all
+    search = params[:search][:query]
+    if search == ""
+      @items = Item.all
+    else
+      @items = Item.where("name LIKE ? or description LIKE ? or category LIKE ?",
+                          "%#{search}%", "%#{search}%", "%#{search}%")
+    end
   end
 
   def show
