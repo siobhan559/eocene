@@ -1,4 +1,3 @@
-
 <h2>Post Item</h2>
 <%= simple_form_for item do |f| %>
   <div class="form-inputs">
@@ -9,6 +8,10 @@
                 required: true,
                 autofocus: true %>
     <%= f.input :category, collection: ['surf', 'trek', 'mountain-climb', 'ski', 'snowboard', 'mountain-bike', 'skydive'],
+                required: true,
+                autofocus: true %>
+    <%= f.input :price,
+                as: :numeric,
                 required: true,
                 autofocus: true %>
     <%= f.input :photo, as: :file %>
