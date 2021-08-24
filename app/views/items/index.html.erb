@@ -1,18 +1,24 @@
-<div class="container">
+<div class="main-container">
   <%= render "shared/searchform" %>
-</div>
 
-<div class="container">
-  <div class="cards">
-    <% @items.each do |item| %>
+  <div class="index-container">
+    <%= render "shared/filterform" %>
 
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <a href="<%= item_path(item) %>"><h2><%= item.name %></h2></a>
-          <p><%= item.description %></p>
-        </div>
-      </div>
-    <% end %>
+    <div class="card-container">
+      <%# <div class="cards"> %>
+        <% @items.each do |item| %>
+
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <a href="<%= item_path(item) %>"><h2><%= item.name %></h2></a>
+            <p><%= item.description %></p>
+          </div>
+          </div>
+        <% end %>
+      <%# </div> %>
+    </div>
+
   </div>
+
 </div>

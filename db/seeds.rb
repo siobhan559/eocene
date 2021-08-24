@@ -9,6 +9,7 @@ user = User.create(
   email: 'email@gmail.com'
 )
 
+
 50.times do
   item = Item.new(
     name: %w[skis boots surfboard snowboard parachute rope helmet bike-frame bike-pedals].sample.capitalize,
