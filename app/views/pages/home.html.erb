@@ -1,10 +1,22 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-
+<h1>Eocene ~~ Pretend this is a nav bar</h1>
+<div class="banner" style="background-image: url( <%= asset_path("banner.jpg") %> );">
+  <%= simple_form_for :search, url: items_path, method: :get do |f| %>
+  <div class="banner-text">
+  <h3>This will be brief chat about Eocene </h3>
+  </div>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+<% end %>
 
 <div class="d-flex container justify-content-between" >
- <!-- first banner --> 
+ 
+  <!-- first banner --> 
 
    <div class="card-trip">
     <img src="https://images.unsplash.com/photo-1580128789542-d484253e94a3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNjdWJhfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
@@ -28,7 +40,6 @@
 
   <!-- Third banner --> 
 
-
    <div class="card-trip">
     <img src="https://images.unsplash.com/photo-1519789110007-0e751882be76?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHN1cmZpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
     <div class="card-info">
@@ -37,5 +48,4 @@
       <h5 class="card-trip-pricing">£12.99 a day</h5>
     </div>
   </div>
-
 </div>

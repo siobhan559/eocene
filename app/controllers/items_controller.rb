@@ -1,10 +1,17 @@
 class ItemsController < ApplicationController
+  before_action :find_item, only: %i[show edit update destroy]
+
   def index
-    @items = Item.all
+    search = params[:search][:query]
+    if search == ""
+      @items = Item.all
+    else
+      @items = Item.where("name LIKE ? or description LIKE ? or category LIKE ?",
+                          "%#{search}%", "%#{search}%", "%#{search}%")
+    end
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def new
@@ -18,17 +25,14 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(item_params)
     redirect_to item_path(@item)
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to items_path(@item)
   end
@@ -37,6 +41,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :price)
+  end
+
+  def find_item
+    @item = Item.find(params[:id])
   end
 
 end
