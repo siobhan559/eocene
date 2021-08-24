@@ -1,0 +1,11 @@
+<div class="container mt-2">
+  <h1>Edit item</h1>
+</div>
+
+<%= render 'form', item: @item %>
+
+<div class="container">
+  <div type="button" id="submit-button" class="btn btn-lg btn-success mt-3 mx-auto" style="display: block; width: 200px;">
+    <%= link_to 'Go back', item_path(@item) %>
+  </div>
+</div>
