@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def account
+    @item = Item.new
   end
 end
