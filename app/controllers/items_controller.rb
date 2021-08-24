@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
-    search = params[:search][:query]
+    search = params[:search][:query].capitalize
     if search == ""
       @items = Item.all
     else
