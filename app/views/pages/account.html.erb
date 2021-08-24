@@ -1,0 +1,20 @@
+<div class="row my-4 mx-0">
+  <div class="col-7">
+    <div class="cards">
+      <% current_user.items.each do |item| %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <a href="<%= item_path(item) %>"><h2><%= item.name %></h2></a>
+            <p><%= item.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-5" style="box-shadow: 0px 0px 3px grey;">
+    <div class="p-3">
+      <%= render 'shared/itemform', item: @item %>
+    </div>
+  </div>
+</div>

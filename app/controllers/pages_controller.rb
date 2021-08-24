@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def account
+    @item = Item.new
+  end
 end
