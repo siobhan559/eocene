@@ -2,12 +2,16 @@ class ItemsController < ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
-    search = params[:search][:query].capitalize
-    if search == ""
+    session[:search] = params.dig(:search, :query)
+    if session[:search] == ""
       @items = Item.all
     else
-      @items = Item.where("name LIKE ? or description LIKE ? or category LIKE ?",
-                          "%#{search}%", "%#{search}%", "%#{search}%")
+      @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
+                          "%#{session[:search]}%", "%#{session[:search]}%", "%#{session[:search]}%")
+    end
+    filters = params.dig(:filters, :category)
+    if filters.present?
+      @items = @items.where(category: filters)
     end
   end
 

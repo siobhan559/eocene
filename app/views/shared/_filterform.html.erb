@@ -1,3 +1,11 @@
   <div class="card-filter">
-      <p>This will be filters</p>
+
+  <%= simple_form_for :filters, url: items_path, method: :get do |f| %>
+    <%= f.input :category, collection: Item::CATEGORY , as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item'%>
+    <%= f.input :price, collection: Item::PRICE , as: :radio_buttons%>
+
+    <%= f.button :submit, class: "btn btn-flat" %>
+
+  <% end %>
+
   </div>
