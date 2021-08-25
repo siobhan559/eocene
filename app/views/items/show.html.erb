@@ -4,8 +4,10 @@
     <h4><%= @item.category %></h2>
     <%= @item.description %>
     <div class="action-buttons">
-      <i class="far fa-edit"></i><%= link_to 'Edit', edit_item_path(@item) %>
-      <i class="far fa-trash-alt"></i><%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% if current_user == @item.user %>
+        <i class="far fa-edit"></i><%= link_to 'Edit', edit_item_path(@item) %>
+        <i class="far fa-trash-alt"></i><%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
   </div>
 
