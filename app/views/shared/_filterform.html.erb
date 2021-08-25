@@ -1,5 +1,7 @@
   <div class="card-filter">
 
+  <h3>Filter by: </h3>
+
   <%= simple_form_for :filters, url: items_path, method: :get do |f| %>
     <%= f.input :category, collection: Item::CATEGORY , as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item'%>
     <%= f.input :price, collection: Item::PRICE , as: :radio_buttons%>
