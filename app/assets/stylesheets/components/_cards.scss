@@ -3,3 +3,11 @@
   grid-template-columns: 1fr;
   grid-gap: 16px;
 }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 31px;
+  padding: 31px;
+  place-items: center;
+}
