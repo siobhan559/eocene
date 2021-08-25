@@ -3,9 +3,9 @@
   <div class="product-subinfo">
     <h4><%= @item.category %></h2>
     <%= @item.description %>
-    <div class="update-buttons">
-      <%= link_to 'Edit', edit_item_path(@item) %>
-      <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="action-buttons">
+      <i class="far fa-edit"></i><%= link_to 'Edit', edit_item_path(@item) %>
+      <i class="far fa-trash-alt"></i><%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
   </div>
 
@@ -46,13 +46,9 @@
     <div class="info-box">
       <div class="text">
         <h2>Addtional Information</h2>
-        <p>Further text relating to item i.e price, item condition, description, value</p>
           <ul>
-            <li>B</li>
-            <li>BL</li>
-            <li>BLA</li>
-            <li>BLAH</li>
-            <li>BLAHHHH</li>
+            <li><%= @item.description %></li>
+            <li>£<%= @item.price %>0 per day</li>
           </ul>
       </div>
     </div>
