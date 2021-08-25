@@ -3,15 +3,26 @@ class ItemsController < ApplicationController
 
   def index
     session[:search] = params.dig(:search, :query)
-    if session[:search] == ""
+    if params[:search_query] == ""
+      @items = Item.all
+    elsif params[:search_query] == nil
       @items = Item.all
     else
       @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
                           "%#{session[:search]}%", "%#{session[:search]}%", "%#{session[:search]}%")
     end
+
     filters = params.dig(:filters, :category)
-    if filters.present?
+    if filters.present? && filters.reject(&:empty?).present?
       @items = @items.where(category: filters)
+    end
+
+    sort = params.dig(:filters, :price)
+    case sort
+    when "Highest" then @items = @items.order(price: :desc)
+    when "Lowest" then @items = @items.order(price: :asc)
+    else
+      @items
     end
   end
 
