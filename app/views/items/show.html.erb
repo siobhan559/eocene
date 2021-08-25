@@ -1,16 +1,19 @@
 <div class="container">
-  <h1><%= @item.name.capitalize %></h1>
-  <h2><%= @item.category %></h2>
-
-  <div class="edit buttons">
-    <%= link_to 'Edit', edit_item_path(@item) %>
-    <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+  <h1 class="product-info text-center"><%= @item.name.capitalize %></h1>
+  <div class="product-subinfo">
+    <h4><%= @item.category %></h2>
+    <%= @item.description %>
+    <div class="action-buttons">
+      <i class="far fa-edit"></i><%= link_to 'Edit', edit_item_path(@item) %>
+      <i class="far fa-trash-alt"></i><%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
   </div>
 
   <div class="total-carousel">
     <% if @item.photos.size == 1 %>
-      <img class="d-block w-100" src="<%= cl_image_path @item.photos.first.key %>" alt="photo" >
-
+      <div class="one-image">
+        <img class="d-block w-100" src="<%= cl_image_path @item.photos.first.key %>" alt="photo" >
+      </div>
     <% elsif @item.photos.size > 1 %>
 
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -24,7 +27,6 @@
           <% @item.photos.each_with_index do |photo, index| %>
             <div class="carousel-item <%= index == 0 ? "active" : "" %>">
               <img class="d-block w-100" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
-              <%# <%= cl_image_tag photo.key, class: 'd-block w-100', alt: '<%= image %>
             </div>
           <% end %>
         </div>
@@ -39,37 +41,32 @@
         </a>
       </div>
     <% end %>
-  </div>
 
-  <div class="totaldiv">  
+  <div class="totaldiv">
     <div class="info-box">
       <div class="text">
-        <h2>Addtional Information</h2>
-        <p>Further text relating to item i.e price, item condition, description, value</p>
+        <h2>Additional Information</h2>
           <ul>
-            <li>B</li>
-            <li>BL</li>
-            <li>BLA</li>
-            <li>BLAH</li>
-            <li>BLAHHHH</li>
+            <li><%= @item.description %></li>
+            <li>£<%= @item.price %>0 per day</li>
           </ul>
       </div>
     </div>
 
     <div class="signup-box">
       <div class="text2">
-        <h2>Enter your details</h2>
+        <h2>Make a booking</h2>
         <form>
         <input type=>
+        <%= link_to 'Make a booking', new_booking_path %>
       </div>
     </div>
-  
+
   </div>
 
-</div>
-  
-  <div>
-    <%= @item.description %>
-    <%= link_to 'Make a booking', new_booking_path %>
   </div>
-  
+
+  <div>
+
+  </div>
+</div>
