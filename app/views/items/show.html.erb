@@ -1,10 +1,12 @@
 <div class="container">
-  <h1><%= @item.name.capitalize %></h1>
-  <h2><%= @item.category %></h2>
-
-  <div class="edit buttons">
-    <%= link_to 'Edit', edit_item_path(@item) %>
-    <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+  <h1 class="product-info text-center"><%= @item.name.capitalize %></h1>
+  <div class="product-subinfo">
+    <h4><%= @item.category %></h2>
+    <%= @item.description %>
+    <div class="update-buttons">
+      <%= link_to 'Edit', edit_item_path(@item) %>
+      <%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
   </div>
 
   <div class="total-carousel">
@@ -39,9 +41,8 @@
         </a>
       </div>
     <% end %>
-  </div>
 
-  <div class="totaldiv">  
+  <div class="totaldiv">
     <div class="info-box">
       <div class="text">
         <h2>Addtional Information</h2>
@@ -58,18 +59,18 @@
 
     <div class="signup-box">
       <div class="text2">
-        <h2>Enter your details</h2>
+        <h2>Make a booking</h2>
         <form>
         <input type=>
+        <%= link_to 'Make a booking', new_booking_path %>
       </div>
     </div>
-  
+
   </div>
 
-</div>
-  
-  <div>
-    <%= @item.description %>
-    <%= link_to 'Make a booking', new_booking_path %>
   </div>
-  
+
+  <div>
+
+  </div>
+</div>
