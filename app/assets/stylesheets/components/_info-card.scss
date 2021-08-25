@@ -1,0 +1,38 @@
+
+/* FIRST BOX */
+.info-box {
+  width: 600px;
+  height: 500px;
+  margin: 16px;
+  border-radius: 3px;
+  background-color: #5AB1CD;
+  padding: 12px;
+  margin: 16px;
+}
+.text {
+  border-radius: 3px;
+  background-color: white;
+  height: 475px;
+  padding: 12px;
+}
+
+/* SECOND BOX */
+.signup-box {
+ width: 350px;
+ height: 500px;
+ margin: 16px;
+ border-radius: 3px;
+ background-color: #5AB1CD;
+ padding: 12px;
+}
+.text2 {
+  border-radius: 3px;
+  background-color: white;
+  height: 475px;
+  padding: 12px;
+  }
+
+.totaldiv {
+  display: flex;
+  justify-content: space-around;
+}
