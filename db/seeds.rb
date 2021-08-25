@@ -1,9 +1,11 @@
 require "open-uri"
 
-puts "Cleaning db"
+puts "---------------------------------------------"
+puts "Cleaning the database"
 Item.delete_all
 User.delete_all
-puts "Db cleaned"
+puts "Database has been cleaned"
+puts "---------------------------------------------"
 
 user1 = User.create(
   first_name: 'Seed',
@@ -12,7 +14,6 @@ user1 = User.create(
   email: 'one@seed.com'
 )
 
-<<<<<<< HEAD
 file = URI.open('https://source.unsplash.com/featured/?face')
 user1.photo.attach(io: file, filename: 'image.png', content_type: 'image/png')
 
@@ -30,10 +31,6 @@ hash = [['Water', 'Surfboard'], ['Snow', 'Ski Boots'], ['Water', 'Wet Suit'], ['
         ['Free Fall', 'Parachute'], ['Mountain', 'Harness'], ['Mountain', 'Helmet'], ['Mountain', 'Bike Frame'], ['Mountain', 'Bike Pedals'], ['Water', 'Kayak']]
 
 25.times do
-=======
-
-50.times do
->>>>>>> 784cd6911a9d98bfa8c58d831b8b26f14f5c04ff
   item = Item.new(
     name: hash.sample[1],
     description: 'This is a really good description for this item.',
@@ -47,4 +44,6 @@ hash = [['Water', 'Surfboard'], ['Snow', 'Ski Boots'], ['Water', 'Wet Suit'], ['
   puts "Successfully added item: #{item.name}"
 end
 
+puts "---------------------------------------------"
 puts "Added #{Item.count} items"
+puts "---------------------------------------------"
