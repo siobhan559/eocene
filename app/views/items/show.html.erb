@@ -1,5 +1,10 @@
 <div class="container">
-  <h1 class="product-info text-center"><%= @item.name.capitalize %></h1>
+  <div class="product-info">
+    <%= link_to items_path do %>
+      <i class="fas fa-chevron-left"> Back</i>
+    <% end %>
+    <h1 class="product-info text-center"><%= @item.name.capitalize %></h1>
+  </div>
   <div class="product-subinfo">
     <h4><%= @item.category %></h2>
     <%= @item.description %>
