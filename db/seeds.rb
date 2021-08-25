@@ -27,8 +27,9 @@ user2 = User.create(
 file = URI.open('https://source.unsplash.com/featured/?face')
 user2.photo.attach(io: file, filename: 'image.png', content_type: 'image/png')
 
-hash = [['Surf', 'Surfboard'], ['Winter Sports', 'Ski Boots'], ['Dive', 'Wet Suit'], ['Winter Sports', 'Snowboard'],
-        ['Other', 'Parachute'], ['Trek', 'Backpack'], ['Bike', 'Helmet'], ['Bike', 'Bike Frame'], ['Bike', 'Bike Pedals'], ['Other', 'Kayak']]
+hash = [['Surf', 'Surfboard'], ['Winter Sports', 'Ski Boots'], ['Dive', 'Wet Suit'],
+        ['Winter Sports', 'Snowboard'], ['Other', 'Parachute'], ['Trek', 'Backpack'],
+        ['Bike', 'Helmet'], ['Bike', 'Bike Frame'], ['Bike', 'Bike Pedals'], ['Other', 'Kayak']]
 
 25.times do
   item = Item.new(
@@ -38,8 +39,10 @@ hash = [['Surf', 'Surfboard'], ['Winter Sports', 'Ski Boots'], ['Dive', 'Wet Sui
     category: hash.sample[0],
     user: [user1, user2].sample
   )
-  file = URI.open('https://source.unsplash.com/featured/?sport')
-  item.photos.attach(io: file, filename: 'image.png', content_type: 'image/png')
+  2.times do
+    file = URI.open("https://source.unsplash.com/featured/?#{item.name}")
+    item.photos.attach(io: file, filename: 'image.png', content_type: 'image/png')
+  end
   item.save!
   puts "Successfully added item: #{item.name}"
 end
