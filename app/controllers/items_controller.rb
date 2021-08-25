@@ -3,15 +3,26 @@ class ItemsController < ApplicationController
 
   def index
     session[:search] = params.dig(:search, :query)
-    if session[:search] == ""
+    if params[:search_query] == ""
+      @items = Item.all
+    elsif params[:search_query] == nil
       @items = Item.all
     else
       @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
                           "%#{session[:search]}%", "%#{session[:search]}%", "%#{session[:search]}%")
     end
+
     filters = params.dig(:filters, :category)
-    if filters.present?
+    if filters.present? && filters.reject(&:empty?).present?
       @items = @items.where(category: filters)
+    end
+
+    sort = params.dig(:filters, :price)
+    case sort
+    when "Highest" then @items = @items.order(price: :desc)
+    when "Lowest" then @items = @items.order(price: :asc)
+    else
+      @items
     end
   end
 
@@ -25,16 +36,22 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-    @item.save
-    redirect_to item_path(@item)
+    if @item.save
+      redirect_to item_path(@item)
+    else
+      redirect_to account_path(current_user)
+    end
   end
 
   def edit
   end
 
   def update
-    @item.update(item_params)
-    redirect_to item_path(@item)
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -45,7 +62,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, photos: [])
+    params.require(:item).permit(:name, :description, :price, :category, photos: [])
   end
 
   def find_item

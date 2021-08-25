@@ -1,0 +1,17 @@
+.product-info {
+  i {
+    color: $main;
+  }
+}
+
+.product-info a {
+  display: flex;
+  color: $main;
+  text-decoration: none;
+}
+
+.product-info p {
+  position: relative;
+  left: 4px;
+  top: -3px;
+}
