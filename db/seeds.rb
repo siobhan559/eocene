@@ -35,7 +35,7 @@ hash = [['Water', 'Surfboard'], ['Snow', 'Ski Boots'], ['Water', 'Wet Suit'], ['
     name: hash.sample[1],
     description: 'This is a really good description for this item.',
     price: (5..50).to_a.sample,
-    category: hash.sample[2],
+    category: hash.sample[0],
     user: [user1, user2].sample
   )
   file = URI.open('https://source.unsplash.com/featured/?sport')
