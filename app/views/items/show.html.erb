@@ -53,22 +53,16 @@
       <h2><strong>Additional Information</strong></h2>
       <p><%= @item.description %></p>
       <p>£<%= @item.price %>0 per day</p>
-      <%= link_to 'Book Now', item_path(@item), class: 'btn-ghost' %>
+      <div class="call-to-action">
+        <%= link_to 'Yes please!', item_path(@item) %>
+      </div>
     </div>
   </div>
 
   <div class="signup-box">
     <h2>Make a booking</h2>
-    <form>
-    <input type=>
-    <%= link_to 'Make a booking', new_booking_path %>
-  </div>
-
-  </div>
-
-  </div>
-
-  <div>
-
+    <div class="call-to-action">
+      <%= link_to 'Book now!', item_path(@item), class: 'btn-ghost' %>
+    </div>
   </div>
 </div>
