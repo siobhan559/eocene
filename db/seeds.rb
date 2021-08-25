@@ -27,8 +27,8 @@ user2 = User.create(
 file = URI.open('https://source.unsplash.com/featured/?face')
 user2.photo.attach(io: file, filename: 'image.png', content_type: 'image/png')
 
-hash = [['Surfing', 'Surfboard'], ['Winter Sports', 'Ski Boots'], ['Diving', 'Wet Suit'], ['Winter Sports', 'Snowboard'],
-        ['Other', 'Parachute'], ['Trekking', 'Backpack'], ['Biking', 'Helmet'], ['Biking', 'Bike Frame'], ['Biking', 'Bike Pedals'], ['Other', 'Kayak']]
+hash = [['Surf', 'Surfboard'], ['Winter Sports', 'Ski Boots'], ['Dive', 'Wet Suit'], ['Winter Sports', 'Snowboard'],
+        ['Other', 'Parachute'], ['Trek', 'Backpack'], ['Bike', 'Helmet'], ['Bike', 'Bike Frame'], ['Bike', 'Bike Pedals'], ['Other', 'Kayak']]
 
 25.times do
   item = Item.new(
