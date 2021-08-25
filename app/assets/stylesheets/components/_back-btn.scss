@@ -1,7 +1,17 @@
 .product-info {
-  a {
+  i {
     color: $main;
-    font-family: "Work Sans", "Helvetica";
-    font-weight: lighter;
   }
+}
+
+.product-info a {
+  display: flex;
+  color: $main;
+  text-decoration: none;
+}
+
+.product-info p {
+  position: relative;
+  left: 4px;
+  top: -3px;
 }
