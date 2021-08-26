@@ -7,14 +7,20 @@
     <%= f.input :description,
                 required: true,
                 autofocus: true %>
-    <%= f.input :category, collection: ['Surf', 'Trek', 'Winter Sports', 'Dive', 'Bike', 'Other'],
-                required: true,
-                autofocus: true %>
-    <%= f.input :price,
-                as: :numeric,
-                required: true,
-                autofocus: true %>
-    <%= f.input :photo, as: :file, input_html: { multiple: true } %>
+    <div class="row">
+      <div class="col">
+        <%= f.input :category, collection: ['Surf', 'Trek', 'Winter Sports', 'Dive', 'Bike', 'Other'],
+                    required: true,
+                    autofocus: true %>
+      </div>
+      <div class="col">
+        <%= f.input :price,
+                    as: :numeric,
+                    required: true,
+                    autofocus: true %>
+      </div>
+    </div>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
   <%= f.button :submit, class: 'btn btn-primary btn-lg btn-block', value: "Post" %>
 <% end %>

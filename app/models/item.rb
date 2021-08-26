@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10 }
   validates :price, presence: true, numericality: true
   validates :category, presence: true
-  # validates :photos, presence: true
+  validates :photos, presence: true
 
   CATEGORY = ['Surf', 'Winter Sports', 'Dive', 'Trek', 'Bike', 'Others']
   PRICE = ['Highest first', 'Lowest first']
