@@ -4,3 +4,11 @@
     text-decoration: none;
   }
 }
+
+#booking-btn {
+  padding-top: 12px;
+  background-color: $main;
+  &:hover {
+    opacity: 0.8;
+  }
+}
