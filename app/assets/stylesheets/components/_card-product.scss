@@ -8,16 +8,21 @@
   align-items: center;
   margin: 30px 20px 30px 50px;
   border-radius: 20px;
+  position: relative;
+  &:hover .image .overlay {
+    width: 50%;
+  }
 }
 
-.card-product img {
+.card-product .image {
   height: 100%;
-  width: 200px;
-  object-fit: cover;
+  width: 100%;
 }
 
-.card-product a {
-  text-decoration: none;
+.card-product .image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .card-product h2 {
@@ -26,10 +31,6 @@
   font-weight: bold;
   margin: 0;
   padding: 20px;
-}
-
-.card-product h2:hover{
-  color: $hover_main;
 }
 
 .card-product p {
@@ -56,4 +57,30 @@
   height: 100%;
   background-color: $white;
   border-radius: 20px;
+}
+
+.card-product .image .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  opacity: .8;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.card-product .image .overlay .text {
+  font-weight: bold;
+  background-color: transparent;
+  white-space: nowrap;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 45%;
+  left: 30%;
+  height: auto;
+  color: $main;
 }
