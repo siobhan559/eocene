@@ -62,3 +62,14 @@
   color: $dark;
   text-decoration: none;
 }
+
+.cards-grid a {
+width: 100%;
+color: $dark;
+}
+
+.cards-grid a:hover {
+  width: 100%;
+  color: $main;
+  text-decoration: none;
+  }
