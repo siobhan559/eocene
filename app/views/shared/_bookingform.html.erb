@@ -1,5 +1,5 @@
   <div class="container">
-    <%= simple_form_for booking do |f| %>
+    <%= simple_form_for @booking do |f| %>
       <%= f.input :start_date, as: :date, html5: true, required: true, autofocus: true %>
       <%= f.input :end_date, as: :date, html5: true, required: true, autofocus: true %>
       <%= f.button :submit, class: 'btn btn-primary btn-lg btn-block', value: "Book" %>
