@@ -13,3 +13,29 @@
     color: black;
   }
 }
+
+.call-to-action {
+  a {
+    background-color: $main;
+    border-radius: 20px;
+    padding: 12px;
+    color: black;
+    display: block;
+  }
+  &:hover {
+    color: black;
+  }
+}
+
+#hidden-btn {
+  a {
+    background-color: $main;
+    border-radius: 20px;
+    padding: 12px;
+    color: black;
+    display: block;
+  }
+  &:hover {
+    color: black;
+}
+}
