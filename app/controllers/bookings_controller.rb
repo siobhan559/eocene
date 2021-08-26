@@ -3,8 +3,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @item = Item.find(params[:item_id])
     @booking.item = @item
-    @booking.save
-    redirect_to item_path(@item)
+    @booking.user = current_user
+    @booking.total_price = 5.00
+    if @booking.save!
+      redirect_to booking_path(@booking)
+    else
+      render 'items#show'
+    end
   end
 
   def update
