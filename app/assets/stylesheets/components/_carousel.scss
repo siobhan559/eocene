@@ -1,0 +1,16 @@
+
+.carousel-item {
+  width: 100%;
+  height: 500px;
+  img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    object-fit: fill;
+  }
+}
+
+.pics-info {
+  display: flex;
+  justify-content: space-between;
+}
