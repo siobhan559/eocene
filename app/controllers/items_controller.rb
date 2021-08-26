@@ -9,12 +9,11 @@ class ItemsController < ApplicationController
       @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
                           "%#{session[:search]}%", "%#{session[:search]}%", "%#{session[:search]}%")
     end
-
+    p @items.length
     filters = params.dig(:filters, :category)
     if filters.present? && filters.reject(&:empty?).present?
       @items = @items.where(category: filters)
     end
-
     sort = params.dig(:filters, :price)
     case sort
     when "Highest first" then @items = @items.order(price: :desc)
@@ -22,6 +21,8 @@ class ItemsController < ApplicationController
     else
       @items
     end
+    p @items.length
+
   end
 
   def show

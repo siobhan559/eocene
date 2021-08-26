@@ -5,7 +5,8 @@
   <div class="index-container">
   <div class="col-4">
     <%= render "shared/filterform" %>
-    </div>
+  </div>
+  <div class="col-8">
     <div class="card-container">
       <div class="cards">
         <% @items.each do |item| %>
@@ -22,5 +23,6 @@
         <% end %>
       </div>
     </div>
+  </div>
   </div>
 </div>
