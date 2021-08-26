@@ -1,7 +1,7 @@
 
 /* FIRST BOX */
 .info-box {
-  width: 50%;
+  width: 60%;
   margin: 16px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -23,6 +23,7 @@
   a {
     text-decoration: none;
     display: inline-block;
+    color: black;
     &:hover {
       color: $main;
       opacity: 0.6;

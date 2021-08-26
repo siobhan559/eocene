@@ -61,7 +61,7 @@
         <p><%= @item.description %></p>
       </div>
       <div class="show-content">
-        <%= link_to '..Show more', item_path(@item) %>
+        <strong><%= link_to '..Show more', item_path(@item) %></strong>
       </div>
       <p>£<%= @item.price %>0 per day</p>
       <div class="call-to-action" id="hidden-btn">
