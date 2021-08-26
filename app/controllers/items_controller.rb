@@ -3,9 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     session[:search] = params.dig(:search, :query)
-    if params[:search_query] == ""
-      @items = Item.all
-    elsif params[:search_query] == nil
+    if params[:search_query] == "" || params[:search_query].nil?
       @items = Item.all
     else
       @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
