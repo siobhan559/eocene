@@ -9,11 +9,13 @@ const listenForHiddenClick = () => {
 const listenForClickButton = () => {
   const button = document.getElementById('hidden-btn');
   button.addEventListener("click", () => {
-    console.log(button.innerText);
+    console.log(button.classList);
     if (button.innerText === "Let's Book!"){
       button.innerText = "Hide booking form";
+      button.classList = "call-to-action";
     } else {
       button.innerText = "Let's Book!";
+      button.classList = "call-to-action";
     };
   });
 };

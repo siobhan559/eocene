@@ -33,7 +33,7 @@
           <div class="carousel-inner">
             <% @item.photos.each_with_index do |photo, index| %>
               <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-                <img class="d-block w-100" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
+                <img class="d-block" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
               </div>
             <% end %>
           </div>
@@ -57,7 +57,12 @@
         <% end %>
         <i class="far fa-star"></i>
       </div>
-      <p><%= @item.description %></p>
+      <div id="hide" class="hide-content">
+        <p><%= @item.description %></p>
+      </div>
+      <div class="show-content">
+        <strong><%= link_to '..Show more', item_path(@item) %></strong>
+      </div>
       <p>£<%= @item.price %>0 per day</p>
       <div class="call-to-action" id="hidden-btn">
         <%= link_to "Let's Book!", item_path(@item) %>
