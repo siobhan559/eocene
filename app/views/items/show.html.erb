@@ -10,7 +10,9 @@
     <div class="action-buttons">
       <% if current_user == @item.user %>
         <i class="far fa-edit"></i><%= link_to 'Edit', edit_item_path(@item) %>
-        <i class="far fa-trash-alt"></i><%= link_to 'Delete', item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+        <i class="far fa-trash-alt"></i>
+        <p id="sweet-alert-demo">Delete</p>
+        <%= link_to 'Delete', item_path(@item), method: :delete, id: "delete_item", class: "hidden" %>
       <% end %>
     </div>
   </div>
