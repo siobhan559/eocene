@@ -4,7 +4,13 @@ class PagesController < ApplicationController
   def home
   end
 
-  def account
+  def listings
     @item = Item.new
+  end
+
+  def purchases
+  end
+
+  def settings
   end
 end

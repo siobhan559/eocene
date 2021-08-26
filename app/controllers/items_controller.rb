@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item)
     else
-      redirect_to account_path(current_user)
+      redirect_to listings_path(current_user)
     end
   end
 

@@ -1,7 +1,17 @@
 <div class="row my-4 mx-0">
+  <ul class="list-inline tabs-underlined my-2 mx-5">
+    <li>
+      <h3><a href="<%= listings_path(current_user) %>" class="tab-underlined active">My Listings</a></h3>
+    </li>
+    <li>
+      <h3><a href="<%= purchases_path(current_user) %>" class="tab-underlined">Past Purchases</a></h3>
+    </li>
+    <li>
+      <h3><a href="<%= settings_path(current_user) %>" class="tab-underlined">Settings</a></h3>
+    </li>
+  </ul>
   <div class="col-7">
     <div class="cards">
-    <h1 class="myposts mx-auto">My posts</h1>
       <% current_user.items.each do |item| %>
         <div class="card-product">
           <%= cl_image_tag item.photos.first.key %>
@@ -14,8 +24,8 @@
       <% end %>
     </div>
   </div>
-  <div class="col-5" style="box-shadow: 0px 0px 3px grey;">
-    <div class="p-3">
+  <div class="col-5">
+    <div class="p-4 mt-4 mr-3 rounded" style="box-shadow: 0px 0px 3px lightgrey;">
       <%= render 'shared/itemform', item: @item %>
     </div>
   </div>
