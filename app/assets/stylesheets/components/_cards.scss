@@ -2,11 +2,10 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 16px;
-}
-
-.cards a {
-  text-decoration: none;
-  color: $dark;
+  a {
+    text-decoration: none;
+    color: $dark;
+  }
 }
 
 .cards-grid {
@@ -15,4 +14,9 @@
   gap: 31px;
   padding: 31px;
   place-items: center;
+  a {
+    text-decoration: none;
+    color: $dark;
+    width: 100%;
+  }
 }
