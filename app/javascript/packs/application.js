@@ -24,11 +24,24 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import "sweetalert";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { listenForClickButton, listenForHiddenClick } from './hidden';
 import { listenForSeeMore } from "./see-more";
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-demo', {
+  title: "A nice alert",
+  text: "This is a great alert, isn't it?",
+  icon: "success"
+}, (value) => {
+  if (value) {
+    const link = document.querySelector('#sweet-alert-demo');
+    link.click();
+  }
+});
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
