@@ -32,16 +32,6 @@ import { listenForClickButton, listenForHiddenClick } from './hidden';
 import { listenForSeeMore } from "./see-more";
 import { initSweetalert } from '../plugins/init_sweetalert';
 
-initSweetalert('#sweet-alert-demo', {
-  title: "A nice alert",
-  text: "This is a great alert, isn't it?",
-  icon: "success"
-}, (value) => {
-  if (value) {
-    const link = document.querySelector('#sweet-alert-demo');
-    link.click();
-  }
-});
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -49,4 +39,19 @@ document.addEventListener('turbolinks:load', () => {
   listenForHiddenClick();
   listenForClickButton();
   listenForSeeMore();
+  if (document.querySelector('#sweet-alert-demo')) {
+    initSweetalert('#sweet-alert-demo', {
+      title: "Delete Item",
+      text: "Are your sure you want to remove your item from Eocene?",
+      icon: "warning",
+      buttons: ["Cancel", "Yes"]
+    }, (value) => {
+      if (value) {
+        console.log(value);
+        const link = document.querySelector('#delete_item');
+        link.click();
+      }
+    });
+
+  }
 });
