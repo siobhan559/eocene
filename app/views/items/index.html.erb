@@ -3,7 +3,9 @@
     <%= render "shared/searchform" %>
   </div>
   <div class="index-container">
+  <div class="col-4">
     <%= render "shared/filterform" %>
+    </div>
     <div class="card-container">
       <div class="cards">
         <% @items.each do |item| %>

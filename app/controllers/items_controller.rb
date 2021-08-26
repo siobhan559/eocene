@@ -17,8 +17,8 @@ class ItemsController < ApplicationController
 
     sort = params.dig(:filters, :price)
     case sort
-    when "Highest" then @items = @items.order(price: :desc)
-    when "Lowest" then @items = @items.order(price: :asc)
+    when "Highest first" then @items = @items.order(price: :desc)
+    when "Lowest first" then @items = @items.order(price: :asc)
     else
       @items
     end
