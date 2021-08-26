@@ -1,5 +1,16 @@
 <div class="row my-4 mx-0">
   <div class="col-7">
+    <ul class="list-inline tabs-underlined my-2 mx-5">
+      <li>
+        <h3><a href="<%= listings_path(current_user) %>" class="tab-underlined active">My Listings</a></h3>
+      </li>
+      <li>
+        <h3><a href="<%= purchases_path(current_user) %>" class="tab-underlined">Past Purchases</a></h3>
+      </li>
+      <li>
+        <h3><a href="<%= settings_path(current_user) %>" class="tab-underlined">Settings</a></h3>
+      </li>
+    </ul>
     <div class="cards">
       <% current_user.items.each do |item| %>
         <div class="card-product">
@@ -7,6 +18,7 @@
           <div class="card-product-infos">
             <a href="<%= item_path(item) %>"><h2><%= item.name %></h2></a>
             <p><%= item.description %></p>
+            <p>£<%= item.price %></p>
           </div>
         </div>
       <% end %>
