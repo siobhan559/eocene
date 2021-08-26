@@ -9,6 +9,6 @@ class Item < ApplicationRecord
   # validates :photos, presence: true
 
   CATEGORY = ['Surf', 'Winter Sports', 'Dive', 'Trek', 'Bike', 'Others']
-  PRICE = ['Highest', 'Lowest']
+  PRICE = ['Highest first', 'Lowest first']
   RATING = ['5 Stars', '4 Stars', '3 Stars', '2 Stars', '1 Stars']
 end
