@@ -33,7 +33,7 @@
           <div class="carousel-inner">
             <% @item.photos.each_with_index do |photo, index| %>
               <div class="carousel-item <%= index == 0 ? "active" : "" %>">
-                <img class="d-block w-100" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
+                <img class="d-block" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
               </div>
             <% end %>
           </div>
