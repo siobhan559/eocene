@@ -1,5 +1,5 @@
   <div class="container">
-    <%= simple_form_for @booking do |f| %>
+    <%= simple_form_for([@item, @booking]) do |f| %>
       <div class="row">
         <div class="col">
           <%= f.input :start_date, as: :date, html5: true, required: true, autofocus: true %>
