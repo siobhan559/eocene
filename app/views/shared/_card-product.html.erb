@@ -1,0 +1,17 @@
+<%= link_to item_path(item) do %>
+  <div class="card-product">
+      <div class="image">
+          <%= cl_image_tag item.photos.first.key %>
+          <div class="overlay">
+            <div class="text">Show More</div>
+          </div>
+      </div>
+      <div class="card-product-infos">
+        <h2><%= item.name %></h2>
+        <p><%= truncate(item.description, length:150, separator: ' ', omission: '...') %></p>
+        <div class="card-product-price">
+          <p>£<%= item.price %>0 per day</p>
+        </div>
+      </div>
+  </div>
+<% end %>

@@ -1,15 +1,13 @@
 <div class="row my-4 mx-0">
-  <div class="col-7">
-    <ul class="list-inline tabs-underlined my-2 mx-5">
-      <li>
-        <h3><a href="<%= listings_path(current_user) %>" class="tab-underlined">My Listings</a></h3>
-      </li>
-      <li>
-        <h3><a href="<%= purchases_path(current_user) %>" class="tab-underlined">Past Purchases</a></h3>
-      </li>
-      <li>
-        <h3><a href="<%= settings_path(current_user) %>" class="tab-underlined active">Settings</a></h3>
-      </li>
-    </ul>
-  </div>
+  <ul class="list-inline tabs-underlined my-4 mx-5">
+    <li>
+      <h3><a href="<%= listings_path(current_user) %>" class="tab-underlined">My Listings</a></h3>
+    </li>
+    <li>
+      <h3><a href="<%= purchases_path(current_user) %>" class="tab-underlined">Past Purchases</a></h3>
+    </li>
+    <li>
+      <h3><a href="<%= settings_path(current_user) %>" class="tab-underlined active">Settings</a></h3>
+    </li>
+  </ul>
 </div>
