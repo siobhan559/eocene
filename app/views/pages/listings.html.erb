@@ -1,5 +1,5 @@
 <div class="row my-4 mx-0">
-  <ul class="list-inline tabs-underlined my-2 mx-5">
+  <ul class="list-inline tabs-underlined my-4 mx-5">
     <li>
       <h3><a href="<%= listings_path(current_user) %>" class="tab-underlined active">My Listings</a></h3>
     </li>
@@ -13,21 +13,7 @@
   <div class="col-7">
     <div class="cards">
       <% current_user.items.each do |item| %>
-        <%= link_to item_path(item) do %>
-          <div class="card-product">
-            <div class="image">
-              <%= cl_image_tag item.photos.first.key %>
-              <div class="overlay">
-                <div class="text">Show More</div>
-              </div>
-            </div>
-            <div class="card-product-infos">
-              <h2><%= item.name %></h2>
-              <p><%= item.description %></p>
-              <p>£<%= item.price %></p>
-            </div>
-          </div>
-        <% end %>
+        <%= render 'shared/card-product', item: item %>
       <% end %>
     </div>
   </div>
