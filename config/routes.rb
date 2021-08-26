@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :items do
+  resources :items, except: :new do
     resources :bookings, only: %i[show create update destroy]
   end
   get 'account/:id/listings', to: 'pages#listings', as: :listings
