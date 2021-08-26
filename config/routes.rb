@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'account/:id/purchases', to: 'pages#purchases', as: :purchases
   get 'account/:id/settings', to: 'pages#settings', as: :settings
   resources :items
-  resources :bookings, only: %i[new create index show]
+  resources :bookings, only: %i[create update destroy]
 end
