@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item)
     else
-      redirect_to listings_path(current_user)
+      render "pages/listings"
     end
   end
 
