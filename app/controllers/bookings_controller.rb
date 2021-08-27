@@ -4,11 +4,11 @@ class BookingsController < ApplicationController
     @item = Item.find(params[:item_id])
     @booking.item = @item
     @booking.user = current_user
-    @booking.total_price = 5.00
-    if @booking.save!
+    if @booking.save
+      @booking.total_price = @item.price * (@booking.end_date - @booking.start_date).to_i
       redirect_to booking_path(@booking)
     else
-      render 'items#show'
+      render "items/show"
     end
   end
 
