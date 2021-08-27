@@ -12,7 +12,7 @@
     <% end %>
 
   <% else %>
-    <%= simple_form_for :filters, url: items_path, method: :get do |f| %>
+    <%= simple_form_for :filters, url: items_path, defaults: { required: false }, method: :get do |f| %>
       <%= f.input :category, collection: Item::CATEGORY, as: :check_boxes, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label: 'Choose Category:'%>
       <%= f.input :price, collection: Item::PRICE , as: :radio_buttons, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', label: 'Sort by Price:' %>
 
