@@ -31,12 +31,17 @@ import "sweetalert";
 import { listenForHiddenClick } from './hidden';
 import { listenForSeeMore } from "./see-more";
 import { initSweetalert } from '../plugins/init_sweetalert';
-
+import { listenForClearClick } from "./reset"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  listenForHiddenClick();
+  if (document.getElementById('hidden-btn')) {
+    listenForHiddenClick();
+  };
+  if (document.getElementById('clear-filters')) {
+    listenForClearClick();
+  };
   listenForSeeMore();
   if (document.querySelector('#sweet-alert-demo')) {
     initSweetalert('#sweet-alert-demo', {

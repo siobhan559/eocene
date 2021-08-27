@@ -1,1 +1,13 @@
-<h1>Confirmation</h1>
+<div class="row">
+  <div class="col-12">
+    <div class="container shadow my-5 w-50 rounded-lg">
+      <div class="text-center p-5">
+        <i class="far fa-check-circle" style="font-size:100px;color:#ff5722;padding-bottom:20px;"></i>
+        <h1>Booking Confirmed</h1>
+        <h4>You booked a <%= @booking.item.name %>
+            for <%= pluralize @days, "day" %></h4>
+        <h4>Order total: £<%= @booking.total_price %></h4>
+      </div>
+    </div>
+  </div>
+</div>

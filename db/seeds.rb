@@ -8,6 +8,7 @@ puts "Cleaning database..."
 puts "---------------------------------------------"
 Item.delete_all
 User.delete_all
+Booking.delete_all
 
 #################################
 #####     Helper Method     #####
