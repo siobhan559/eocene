@@ -1,6 +1,6 @@
   <div class="container">
     <%= simple_form_for([@item, @booking]) do |f| %>
-      <div class="row justify-content-center">
+      <div id="calendar" class="row justify-content-center">
         <div class="col-3">
           <%= f.input :start_date, as: :date, html5: true, required: true, autofocus: true, input_html: { value: Date.today } %>
         </div>
