@@ -50,3 +50,18 @@
   color: black;
   height: auto;
 }
+
+#hide {
+  padding-left: 42px;
+  padding-right: 42px;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  img {
+    position: relative;
+    bottom: 13px;
+  }
+}

@@ -15,9 +15,9 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  top: 35px;
+  top: 18px;
   h2 {
-    padding-bottom: 6px;
+    padding-bottom: 10px;
   }
   p {
     padding-bottom: 12px;
@@ -33,6 +33,9 @@
   }
   i {
     color: $main;
+  }
+  h5 {
+    padding: 10px;
   }
 }
 
