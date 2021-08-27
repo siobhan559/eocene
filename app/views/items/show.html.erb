@@ -1,12 +1,13 @@
 <div class="container">
   <div class="product-info">
-    <%= link_to items_path do %>
-      <i class="fas fa-chevron-left"></i><p> Back</p>
-    <% end %>
+    <div class="back-button">
+      <%= link_to items_path do %>
+        <i class="fas fa-chevron-left"></i><p> Back</p>
+      <% end %>
+    </div>
     <h1 class="product-info text-center"><%= @item.name.capitalize %></h1>
   </div>
   <div class="product-subinfo">
-    <h4><em><%= @item.category %></em></h2>
     <div class="action-buttons">
       <% if current_user == @item.user %>
         <i class="far fa-edit"></i><%= link_to 'Edit', edit_item_path(@item) %>
@@ -52,13 +53,14 @@
       <% end %>
     </div>
     <div class="info-box">
-      <h2><strong>Additional Information</strong></h2>
+      <h2><strong>Details</strong></h2>
       <div class="d-flex mx-auto pb-3">
         <% 4.times do %>
           <i class="fas fa-star"></i>
         <% end %>
         <i class="far fa-star"></i>
       </div>
+      <h5><%= @item.category %></h5>
       <div id="hide" class="hide-content">
         <p><%= @item.description %></p>
       </div>
