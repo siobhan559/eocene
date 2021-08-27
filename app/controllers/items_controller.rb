@@ -2,25 +2,32 @@ class ItemsController < ApplicationController
   before_action :find_item, only: %i[show edit update destroy]
 
   def index
-    session[:search] = params.dig(:search, :query)
-    if params[:search_query] == "" || params[:search_query].nil?
+    if params[:search_query].nil?
+      session[:search] = params.dig(:search, :query)
+      if params[:search_query] == "" || params[:search_query].nil?
+        @items = Item.all
+      else
+        @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
+                            "%#{session[:search]}%", "%#{session[:search]}%", "%#{session[:search]}%")
+      end
+
+      filters = params.dig(:filters, :category)
+      if filters.present? && filters.reject(&:empty?).present?
+        @items = @items.where(category: filters)
+      end
+
+      sort = params.dig(:filters, :price)
+      case sort
+      when "Highest first" then @items = @items.order(price: :desc)
+      when "Lowest first" then @items = @items.order(price: :asc)
+      else
+        @items
+      end
+    elsif params[:search_query] == ""
       @items = Item.all
     else
       @items = Item.where("name ILIKE ? or description ILIKE ? or category ILIKE ?",
-                          "%#{session[:search]}%", "%#{session[:search]}%", "%#{session[:search]}%")
-    end
-
-    filters = params.dig(:filters, :category)
-    if filters.present? && filters.reject(&:empty?).present?
-      @items = @items.where(category: filters)
-    end
-
-    sort = params.dig(:filters, :price)
-    case sort
-    when "Highest first" then @items = @items.order(price: :desc)
-    when "Lowest first" then @items = @items.order(price: :asc)
-    else
-      @items
+                            "%#{params[:search_query]}%", "%#{params[:search_query]}%", "%#{params[:search_query]}%")
     end
 
   end
