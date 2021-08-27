@@ -1,14 +1,18 @@
+  const toggle = () => {
+    const checkboxes = document.querySelectorAll('.filters input');
+  console.log(checkboxes)
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = false;
+    };
+  };
+
+
 const listenForClearClick = () => {
   const clear = document.getElementById('clear-filters');
+  console.log("im working");
   clear.addEventListener("click", (e) => {
-    e.preventDefault();
-    let button = clear.querySelector('a');
-    if (button.innerText === "Let's Book!") {
-      button.innerText = "Hide booking form";
-    } else {
-      button.innerText = "Let's Book!";
-    };
-    document.getElementById('signup-box').classList.toggle('clear');
+    console.log(e);
+    toggle();
   });
 };
 

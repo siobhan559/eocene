@@ -3,12 +3,11 @@
   <h3>Filter results by: </h3>
 
   <% if params[:filters] != nil %>
-  <%= simple_form_for :filters, url: items_path, defaults: { required: false }, method: :get do |f| %>
+  <%= simple_form_for :filters, url: items_path, defaults: { required: false }, id: "filter-form", method: :get do |f| %>
     <%= f.input :category, collection: Item::CATEGORY, as: :check_boxes, input_html: { class: "tag-selector" }, checked: params[:filters][:category], item_wrapper_class: 'tag-item', label: 'Choose Category:'%>
     <%= f.input :price, collection: Item::PRICE , as: :radio_buttons, input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item', checked: params[:filters][:price], label: 'Sort by Price:' %>
 
     <%= f.button :submit, class: "btn btn-flat" %>
-    <%= f.button :button, 'Reset Filters', type: 'reset', class: 'btn', id: 'clear-filters' %>
 
     <% end %>
 
@@ -22,4 +21,5 @@
     <% end %>
   <% end %>
 
+    <p class="btn" id="clear-filters">Reset Filters</p>
   </div>
