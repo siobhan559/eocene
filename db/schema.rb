@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2021_08_23_173129) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "total_price"
-    t.integer "start_date"
-    t.integer "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.bigint "user_id", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
