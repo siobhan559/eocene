@@ -58,6 +58,10 @@
   display: flex;
   justify-content: space-evenly;
   padding: 10px;
+  align-items: center;
+  p{
+    font-size: 15px;
+  }
   img {
     position: relative;
     bottom: 13px;
