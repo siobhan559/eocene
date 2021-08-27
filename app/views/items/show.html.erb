@@ -1,7 +1,7 @@
 <div class="container">
   <div class="product-info">
     <div class="back-button">
-      <%= link_to items_path do %>
+      <%= link_to items_path, onclick: "window.history.back();" do %>
         <i class="fas fa-chevron-left"></i><p> Back</p>
       <% end %>
     </div>
