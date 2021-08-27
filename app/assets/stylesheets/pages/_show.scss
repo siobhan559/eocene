@@ -6,11 +6,8 @@
 }
 
 .product-subinfo {
-  display: flex;
-  justify-content: space-between;
   a {
     text-decoration: none;
-    color: black;
   }
 }
 
@@ -49,4 +46,21 @@
 .show-content {
   color: black;
   height: auto;
+}
+
+#hide {
+  padding-left: 42px;
+  padding-right: 42px;
+  line-height: 2;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  img {
+    position: relative;
+    bottom: 13px;
+    padding: 6px
+  }
 }

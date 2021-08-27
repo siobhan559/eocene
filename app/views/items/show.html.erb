@@ -1,22 +1,12 @@
 <div class="container">
   <div class="product-info">
-    <%= link_to items_path do %>
-      <i class="fas fa-chevron-left"></i><p> Back</p>
-    <% end %>
-    <h1 class="product-info text-center"><%= @item.name.capitalize %></h1>
-  </div>
-  <div class="product-subinfo">
-    <h4><em><%= @item.category %></em></h2>
-    <div class="action-buttons">
-      <% if current_user == @item.user %>
-        <i class="far fa-edit"></i><%= link_to 'Edit', edit_item_path(@item) %>
-        <i class="far fa-trash-alt"></i>
-        <p id="sweet-alert-demo">Delete</p>
-        <%= link_to 'Delete', item_path(@item), method: :delete, id: "delete_item", class: "hidden" %>
+    <div class="back-button">
+      <%= link_to items_path, onclick: "window.history.back();" do %>
+        <i class="fas fa-chevron-left"></i><p> Back</p>
       <% end %>
     </div>
+    <h1 class="product-info text-center"><%= @item.name.capitalize %></h1>
   </div>
-
   <div class="pics-info">
     <div class="total-carousel">
       <% if @item.photos.size == 1 %>
@@ -52,23 +42,43 @@
       <% end %>
     </div>
     <div class="info-box">
-      <h2><strong>Additional Information</strong></h2>
+  <div class="product-subinfo">
+    <div class="action-buttons">
+      <% if current_user == @item.user %>
+        <%# <a class="far fa-edit" > %>
+        <strong><%= link_to 'Edit', edit_item_path(@item) %></strong>
+        <%# <i class="far fa-trash-alt"></i> %>
+        <strong><p id="sweet-alert-demo">Delete</p></strong>
+        <%#= link_to 'Delete', item_path(@item), method: :delete, id: "delete_item", class: "hidden" %>
+      <% end %>
+    </div>
+  </div>
+      <h2><strong>Details</strong></h2>
+      <div class="user-info">
+        <%= cl_image_tag @item.user.photo.key, width: 50, height: 50, radius: "max" %>
+        <p><strong><%= @item.user[:first_name] %>'s <%= @item.name %></strong></p>
+      </div>
       <div class="d-flex mx-auto pb-3">
         <% 4.times do %>
           <i class="fas fa-star"></i>
         <% end %>
         <i class="far fa-star"></i>
       </div>
-      <div id="hide" class="hide-content">
-        <p><%= @item.description %></p>
-      </div>
-      <div class="show-content">
-        <strong><%= link_to '..Show more', item_path(@item) %></strong>
-      </div>
+      <h5><%= @item.category %></h5>
       <p>£<%= @item.price %>0 per day</p>
       <div class="call-to-action" id="hidden-btn">
         <%= link_to "Let's Book!", item_path(@item) %>
       </div>
+    </div>
+  </div>
+
+  <div id="description-box">
+    <h2><strong>Description</strong></h2>
+    <div id="hide" class="hide-content">
+      <p><%= @item.description %></p>
+    </div>
+    <div class="show-content">
+      <strong><%= link_to 'Show more', item_path(@item) %></strong>
     </div>
   </div>
 
