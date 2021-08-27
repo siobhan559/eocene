@@ -3,9 +3,9 @@
   justify-content: space-between;
   margin-left: 18px;
   margin-right: 18px;
-  font-size: 15px;
   a {
     color: $main;
+    font-size: 12px;
     &:hover {
       color: $hover_main;
       cursor: pointer;
@@ -13,6 +13,7 @@
   }
   p {
     color: $main;
+    font-size: 12px;
     &:hover {
       color: $hover_main;;
       cursor: pointer;
